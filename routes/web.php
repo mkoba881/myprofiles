@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 
-
 use App\Http\Controllers\Admin\ProfilesController;
 
 Route::controller(ProfilesController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
@@ -36,3 +35,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 use App\Http\Controllers\ProfilesController as PublicProfilesController;
 Route::get('/profiles', [PublicProfilesController::class, 'index'])->name('profiles.index');
+
+// 追加
+use App\Http\Controllers\LoginWithGoogleController;
+
+// 追加
+Route::get("auth/google", [
+  LoginWithGoogleController::class,
+  "redirectToGoogle",
+]);
+
+// 追加
+Route::get("auth/google/callback", [
+  LoginWithGoogleController::class,
+  "handleGoogleCallback",
+]);

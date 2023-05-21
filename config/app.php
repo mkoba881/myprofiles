@@ -155,7 +155,8 @@ return [
     */
 
     'providers' => [
-
+        //google用設定
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -210,6 +211,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+    //goog用設定
+     'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ])->toArray(),
 
 ];
